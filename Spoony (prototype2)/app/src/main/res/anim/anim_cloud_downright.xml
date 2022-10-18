@@ -4,7 +4,6 @@
     android:fillAfter="true">
 
     <translate
-        android:id="@+id/cover_cloud_upLeft"
         android:fromXDelta="0%p"
         android:toXDelta="15%p"
         android:fromYDelta="0%p"
@@ -13,7 +12,6 @@
         android:duration="1000" />
 
     <translate
-        android:id="@+id/cover_cloud_upLeft"
         android:fromXDelta="0%p"
         android:toXDelta="-2%p"
         android:fromYDelta="0%p"
@@ -22,7 +20,6 @@
         android:duration="230" />
 
     <translate
-        android:id="@+id/cover_cloud_upLeft"
         android:fromXDelta="0%p"
         android:toXDelta="2%p"
         android:fromYDelta="0%p"
