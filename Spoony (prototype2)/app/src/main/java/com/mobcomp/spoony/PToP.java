@@ -29,7 +29,6 @@ public class PToP extends SpoonyActivity {
     private TextView nameView;
 
     private boolean p1Located;
-    private float p1Orientation;
 
     private GameDetails gameDetails;
 
@@ -56,10 +55,7 @@ public class PToP extends SpoonyActivity {
         commonBtnSetup();
 
         p1Located = false;
-        p1Orientation = 0;
-
-        Intent intent = getIntent();
-        gameDetails = (GameDetails) intent.getSerializableExtra("GameDetails");
+        gameDetails = getGameDetails();
     }
 
 //    @Override
@@ -99,7 +95,7 @@ public class PToP extends SpoonyActivity {
     @Override
     protected void updateTable() {
         if(p1Located && currentLayout == POINT_TO_PLR_LAYOUT) {
-            innerCompass.setRotation(p1Orientation-deviceOrientation[0]);
+            innerCompass.setRotation(Angle.rotationDistanceSigned(deviceOrientation[0], gameDetails.getLead().getDirection()));
         }
     }
 
@@ -114,11 +110,11 @@ public class PToP extends SpoonyActivity {
         if (currentLayout == POINT_TO_PLR_LAYOUT) {
             nameView = (TextView) findViewById(R.id.entry_name_p1);
             if (!p1Located) {
-                nameView.setText(getGameDetails().getLead().getName());
-                nameView.setTextColor(getGameDetails().getLead().getColour());
+                nameView.setText(gameDetails.getLead().getName());
+                nameView.setTextColor(gameDetails.getLead().getColour());
             } else {
-                nameView.setText(getGameDetails().getFollow().getName());
-                nameView.setTextColor(getGameDetails().getFollow().getColour());
+                nameView.setText(gameDetails.getFollow().getName());
+                nameView.setTextColor(gameDetails.getFollow().getColour());
             }
         }
     }
@@ -148,15 +144,12 @@ public class PToP extends SpoonyActivity {
         float zOrientation = deviceOrientation[0];
         Log.d("Orientation Prompt", String.valueOf(zOrientation));
         if (!p1Located) {
-            p1Orientation = zOrientation;
-            getGameDetails().getLead().setDirection(zOrientation);
+            gameDetails.getLead().setDirection(zOrientation);
             p1Located = true;
             nameSetup();
         } else {
-            getGameDetails().getFollow().setDirection(zOrientation);
-            Intent intent = new Intent(this, QuestionActivity.class);
-            intent.putExtra("GameDetails", gameDetails);
-            startActivity(intent);
+            gameDetails.getFollow().setDirection(zOrientation);
+            changeActivity(QuestionActivity.class, gameDetails);
         }
     }
 }

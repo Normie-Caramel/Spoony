@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
@@ -33,7 +32,7 @@ public class WhichAnswer extends GameActivity {
 
         result_txt_leadName.setText(gd.getLead().getName());
         result_txt_leadName.setTextColor(gd.getLead().getColour());
-        result_txt_question.setText(gd.getCurrentQuestion().question);
+        result_txt_question.setText(gd.getCurrentQuestion().text);
 
         if (gd.getGuessedQuestion() == gd.getCurrentQuestion()) {
             result_txt_outcome.setText("YOU GOT IT!");

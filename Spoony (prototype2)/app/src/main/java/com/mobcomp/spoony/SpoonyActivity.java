@@ -118,15 +118,18 @@ public class SpoonyActivity extends GameActivity implements SensorEventListener 
         // phone is within VIEW_DISTANCE degrees of player 1's position
         else if (rotationDistanceUnsigned(orientation[0], leadPosition) < VIEW_DISTANCE) {
             // note that if the z-rotation leaves the bounds [-90, 90] then the x-rotation is flipped
-            if (orientation[2] > -90 && orientation[2] < 90) setState(SpoonyState.LEAD_VIEW);
-            else setState(SpoonyState.FOLLOW_VIEW);
+            if (orientation[2] > -90 && orientation[2] < 90) setState(SpoonyState.FOLLOW_VIEW);
+            else setState(SpoonyState.LEAD_VIEW);
+
+            // when the phone is pointing at the lead player, it is instead the follow player who
+            // sees the screen, therefore the cases are reversed
         }
 
         // phone is within VIEW_DISTANCE degrees of player 2's position
         else if (rotationDistanceUnsigned(orientation[0], followPosition) < VIEW_DISTANCE) {
             // again, handle flipping when leaving z-rot [-90, 90]
-            if (orientation[2] > -90 && orientation[2] < 90) setState(SpoonyState.FOLLOW_VIEW);
-            else setState(SpoonyState.LEAD_VIEW);
+            if (orientation[2] > -90 && orientation[2] < 90) setState(SpoonyState.LEAD_VIEW);
+            else setState(SpoonyState.FOLLOW_VIEW);
         }
 
         // none of the above, fall back to default
@@ -215,7 +218,7 @@ public class SpoonyActivity extends GameActivity implements SensorEventListener 
         return gameDetails;
     }
 
-    public void changeActivity(Class<?> cls) {
+    public void changeActivity(Class<?> cls, GameDetails gameDetails) {
         Intent intent = new Intent(this, cls);
         intent.putExtra("GameDetails", gameDetails);
         startActivity(intent);

@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Collections;
 import java.util.LinkedList;
 
 public class QuestionActivity extends SpoonyActivity {
@@ -16,7 +17,6 @@ public class QuestionActivity extends SpoonyActivity {
     private Question question;
     FirebaseHandler fb = new FirebaseHandler();
     LinkedList<Question> questions;
-
 
 
     @Override
@@ -44,6 +44,31 @@ public class QuestionActivity extends SpoonyActivity {
             }
         });
 
+        // safety net
+        if (questions.isEmpty()) {
+            questions = getBackupQuestions();
+        }
+
+        for (Question question : questions) {
+            if (question == null) {
+                questions = getBackupQuestions();
+                break;
+            }
+        }
+    }
+
+    private LinkedList<Question> getBackupQuestions() {
+        Log.e("Question List Error", "Question list is null or contains nulls, defaulting to backup questions.");
+
+        LinkedList<Question> backupQuestions = new LinkedList<>();
+        backupQuestions.add(new Question(0, "!! Who is more like a cat?"));
+        backupQuestions.add(new Question(0, "!! Who is more like a dog?"));
+        backupQuestions.add(new Question(0, "!! Who is more like a horse?"));
+        backupQuestions.add(new Question(0, "!! Who is more like a cow?"));
+        backupQuestions.add(new Question(0, "!! Who is more like a flea?"));
+        backupQuestions.add(new Question(0, "!! Who is more like a fetid little sewer rat?"));
+        Collections.shuffle(backupQuestions);
+        return backupQuestions;
     }
 
 
@@ -75,11 +100,11 @@ public class QuestionActivity extends SpoonyActivity {
         introText.setText(String.format("Here's your question, %s. Don't tell %s!",
                 getGameDetails().getLead().getName(),
                 getGameDetails().getFollow().getName()));
-        questionText.setText(question.question);
+        questionText.setText(question.text);
     }
 
     // continue to the answer stage
     private void lockIn(View view) {
-        changeActivity(AnswerActivity.class);
+        changeActivity(AnswerActivity.class, getGameDetails());
     }
 }

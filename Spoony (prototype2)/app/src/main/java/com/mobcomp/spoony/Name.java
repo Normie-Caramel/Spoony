@@ -22,8 +22,10 @@ public class Name extends GameActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.name);
 
-        Intent intent = getIntent();
-        gameDetails = (GameDetails) intent.getSerializableExtra("GameDetails");
+        if (gameDetails == null) {
+            Intent intent = getIntent();
+            gameDetails = (GameDetails) intent.getSerializableExtra("GameDetails");
+        }
 
         name_txt_p1p2 = findViewById(R.id.textView_p1p2);
         name_txt_p1p2.setText("Spooner 1");
