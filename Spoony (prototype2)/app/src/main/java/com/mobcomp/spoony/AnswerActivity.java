@@ -5,6 +5,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -28,8 +29,7 @@ public class AnswerActivity extends SpoonyActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ansq);
 
-        Intent intent = getIntent();
-        gameDetails = (GameDetails) intent.getSerializableExtra("GameDetails");
+        gameDetails = getGameDetails();
 
         answerDisplay = R.layout.ansq;
         putDownDisplay = R.layout.down;
@@ -55,10 +55,7 @@ public class AnswerActivity extends SpoonyActivity {
 
         if (leadPercentText != null) {
             leadPercentText.setText(String.valueOf(leadPercent));
-        }
-
-        if (leadPercentText != null) {
-            leadPercentText.setText(String.valueOf(100 - leadPercent));
+            followPercentText.setText(String.valueOf((100 - leadPercent)));
         }
     }
 
@@ -88,7 +85,23 @@ public class AnswerActivity extends SpoonyActivity {
     }
 
     private void lockInAnswer(View view) {
-        // TODO: what are we doing with the answer?
+        if (leadPercent >= 50) {
+            gameDetails.getCurrentQuestion().answer = gameDetails.getLead();
+            gameDetails.getCurrentQuestion().percentage = leadPercent;
+        }
+
+        else {
+            gameDetails.getCurrentQuestion().answer = gameDetails.getFollow();
+            gameDetails.getCurrentQuestion().percentage = 100 - leadPercent;
+        }
+
+        gameDetails.nextRound();
+
+        Log.d("AnswerActivity.lockInAnswer", String.format("Question: %s; Answer: %d percent %s",
+                gameDetails.getCurrentQuestion().question,
+                gameDetails.getCurrentQuestion().percentage,
+                gameDetails.getCurrentQuestion().answer.getName()));
+
         Intent intent = new Intent(this, WhichQuestion.class);
         intent.putExtra("GameDetails", gameDetails);
         startActivity(intent);
