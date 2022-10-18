@@ -29,10 +29,10 @@ public class QuestionActivity extends SpoonyActivity {
 
         // populate question
         questions = new LinkedList<>();
-        fb.updateQuestions(fb.loadQuestionFromJSONFile(this, fb.isFirstBoot()), success -> {
+        fb.updateQuestions(success -> {
             if (success) {
                 questions = fb.getQuestions();
-                fb.saveQuestionToJSONFile(this, questions);
+//                fb.saveQuestionToJSONFile(this, questions);
                 getGameDetails().setQuestions(questions);
                 Log.d("GDQ", String.valueOf(questions));
                 // fetch question

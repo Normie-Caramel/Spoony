@@ -21,8 +21,8 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class FirebaseHandler {
 
-    private final static String ASSETQFILESTR = "questions.json";
-    private final static String QFILESTR = "/questions.json";
+//    private final static String ASSETQFILESTR = "questions.json";
+//    private final static String QFILESTR = "/questions.json";
     private static final int UPDATEINTERVAL = 300;
 
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -89,13 +89,44 @@ public class FirebaseHandler {
         return multiQDoc;
     }
 
+//    // return a mapping of multiple questions
+//    // key: id, val: question string
+//    @SuppressWarnings (value="unchecked")
+//    public void updateQuestions(String questionJSON, DocumentCallback documentCallback) {
+//        AtomicReference<Boolean> successFlag = new AtomicReference<>(false);
+//        multiQDoc = new LinkedList<>();
+//        if (checkUpdateTime() || questionJSON == null || firstBoot) {
+//            firstBoot = false;
+//            getQuestionCount();
+//
+//            qdb.get().addOnCompleteListener(task -> {
+//                if (task.isSuccessful()) {
+//                    successFlag.set(true);
+//                    for (QueryDocumentSnapshot document : task.getResult()) {
+//                        multiQDoc.add(new Question(Integer.parseInt(document.getId()), (String) document.getData().get("question")));
+//                    }
+//                    Log.d("FSQ", String.valueOf(multiQDoc));
+//                    documentCallback.getDocumentSuccess(true);
+//                } else {
+//                    Log.e("FSQERR", "Error getting documents.", task.getException());
+//                    documentCallback.getDocumentSuccess(false);
+//                }
+//            });
+//        } else if (questionJSON != null) {
+//            Map<String, Object> data = new Gson().fromJson(questionJSON, Map.class);
+//            data.forEach((qid, qstr) -> multiQDoc.add(new Question(Integer.parseInt(qid), (String) qstr)));
+//            Log.d("FSQ", String.valueOf(multiQDoc));
+//            documentCallback.getDocumentSuccess(true);
+//        }
+//    }
+
     // return a mapping of multiple questions
     // key: id, val: question string
     @SuppressWarnings (value="unchecked")
-    public void updateQuestions(String questionJSON, DocumentCallback documentCallback) {
+    public void updateQuestions(DocumentCallback documentCallback) {
         AtomicReference<Boolean> successFlag = new AtomicReference<>(false);
         multiQDoc = new LinkedList<>();
-        if (checkUpdateTime() || questionJSON == null || firstBoot) {
+        if (checkUpdateTime() || firstBoot) {
             firstBoot = false;
             getQuestionCount();
 
@@ -112,13 +143,9 @@ public class FirebaseHandler {
                     documentCallback.getDocumentSuccess(false);
                 }
             });
-        } else if (questionJSON != null) {
-            Map<String, Object> data = new Gson().fromJson(questionJSON, Map.class);
-            data.forEach((qid, qstr) -> multiQDoc.add(new Question(Integer.parseInt(qid), (String) qstr)));
-            Log.d("FSQ", String.valueOf(multiQDoc));
-            documentCallback.getDocumentSuccess(true);
         }
     }
+
 
     // return true or false if successfully added question
     protected void addNewQuestion(String question, DocumentCallback documentCallback) {
@@ -146,44 +173,44 @@ public class FirebaseHandler {
         return timeDiff >= UPDATEINTERVAL;
     }
 
-    protected String loadQuestionFromJSONFile(Context c, boolean firstBoot) {
-        String json;
-        InputStream is;
-        try {
-            if (firstBoot) {
-                is = c.getAssets().open(ASSETQFILESTR);
-                Log.d("QFILEIN1", c.getAssets().toString() + QFILESTR);int size = is.available();
-
-            } else {
-                is = new FileInputStream(c.getFilesDir() + QFILESTR);
-                Log.d("QFILEIN2", c.getFilesDir() + QFILESTR);
-            }
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, StandardCharsets.UTF_8);
-            Log.d("FSQ", json);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
-    }
-
-    protected void saveQuestionToJSONFile(Context c, LinkedList<Question> qlist) {
-        AtomicReference<Map<String, Object>> qmap = new AtomicReference<>(new HashMap<>());
-        for (int i = 0; i < qlist.size(); i++) {
-            qmap.get().put(String.valueOf(qlist.get(i).id), qlist.get(i).question);
-        }
-        try {
-            FileWriter file = new FileWriter(c.getFilesDir() + QFILESTR);
-            new Gson().toJson(qmap.get(), file);
-            file.flush();
-            file.close();
-            Log.d("QFILEOUT", c.getFilesDir() + QFILESTR);
-        } catch (IOException e) {
-            Log.e("QFILEOUTERR", "Error in Writing: " + e.getLocalizedMessage());
-        }
-    }
+//    protected String loadQuestionFromJSONFile(Context c, boolean firstBoot) {
+//        String json;
+//        InputStream is;
+//        try {
+//            if (firstBoot) {
+//                is = c.getAssets().open(ASSETQFILESTR);
+//                Log.d("QFILEIN1", c.getAssets().toString() + QFILESTR);int size = is.available();
+//
+//            } else {
+//                is = new FileInputStream(c.getFilesDir() + QFILESTR);
+//                Log.d("QFILEIN2", c.getFilesDir() + QFILESTR);
+//            }
+//            int size = is.available();
+//            byte[] buffer = new byte[size];
+//            is.read(buffer);
+//            is.close();
+//            json = new String(buffer, StandardCharsets.UTF_8);
+//            Log.d("FSQ", json);
+//        } catch (IOException ex) {
+//            ex.printStackTrace();
+//            return null;
+//        }
+//        return json;
+//    }
+//
+//    protected void saveQuestionToJSONFile(Context c, LinkedList<Question> qlist) {
+//        AtomicReference<Map<String, Object>> qmap = new AtomicReference<>(new HashMap<>());
+//        for (int i = 0; i < qlist.size(); i++) {
+//            qmap.get().put(String.valueOf(qlist.get(i).id), qlist.get(i).question);
+//        }
+//        try {
+//            FileWriter file = new FileWriter(c.getFilesDir() + QFILESTR);
+//            new Gson().toJson(qmap.get(), file);
+//            file.flush();
+//            file.close();
+//            Log.d("QFILEOUT", c.getFilesDir() + QFILESTR);
+//        } catch (IOException e) {
+//            Log.e("QFILEOUTERR", "Error in Writing: " + e.getLocalizedMessage());
+//        }
+//    }
 }
