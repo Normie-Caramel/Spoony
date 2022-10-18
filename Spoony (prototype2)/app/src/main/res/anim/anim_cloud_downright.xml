@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/linear_interpolator"
+    android:fillAfter="true">
+
+    <translate
+        android:id="@+id/cover_cloud_upLeft"
+        android:fromXDelta="0%p"
+        android:toXDelta="15%p"
+        android:fromYDelta="0%p"
+        android:toYDelta="5%p"
+        android:startOffset="700"
+        android:duration="1000" />
+
+    <translate
+        android:id="@+id/cover_cloud_upLeft"
+        android:fromXDelta="0%p"
+        android:toXDelta="-2%p"
+        android:fromYDelta="0%p"
+        android:toYDelta="-1%p"
+        android:startOffset="1700"
+        android:duration="230" />
+
+    <translate
+        android:id="@+id/cover_cloud_upLeft"
+        android:fromXDelta="0%p"
+        android:toXDelta="2%p"
+        android:fromYDelta="0%p"
+        android:toYDelta="1%p"
+        android:startOffset="1930"
+        android:duration="230" />
+
+</set>

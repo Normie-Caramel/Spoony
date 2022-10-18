@@ -20,74 +20,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-
-    <ImageView
-        android:id="@+id/cover_cloud_1"
-        android:layout_width="164dp"
-        android:layout_height="136dp"
-        android:layout_marginStart="216dp"
-        android:layout_marginTop="124dp"
-        android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/home_cloud_3" />
-
-    <ImageView
-        android:id="@+id/cover_cloud_2"
-        android:layout_width="154dp"
-        android:layout_height="137dp"
-        android:layout_marginStart="280dp"
-        android:layout_marginTop="208dp"
-        android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/home_cloud_2" />
-
-    <ImageView
-        android:id="@+id/cover_cloud_3"
-        android:layout_width="171dp"
-        android:layout_height="143dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="108dp"
-        android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/home_cloud_1" />
-
-
-    <ImageView
-        android:id="@+id/cover_cloud_4"
-        android:layout_width="173dp"
-        android:layout_height="138dp"
-        android:layout_marginTop="184dp"
-        android:layout_marginEnd="256dp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/home_cloud_4" />
-
-    <ImageView
-        android:id="@+id/cover_cloud_5"
-        android:layout_width="173dp"
-        android:layout_height="158dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="140dp"
-        android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/cover_cloud_1" />
-
-    <ImageView
-        android:id="@+id/cover_cloud_6"
-        android:layout_width="160dp"
-        android:layout_height="144dp"
-        android:layout_marginTop="192dp"
-        android:layout_marginEnd="76dp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/cover_cloud_2" />
-
     <TextView
         android:id="@+id/textView_app_title"
         android:layout_width="wrap_content"
@@ -103,6 +35,81 @@
         app:layout_constraintTop_toTopOf="@+id/title_blur" />
 
     <ImageView
+        android:id="@+id/title_blur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/answer_view_background"
+        app:layout_constraintVertical_bias="0.251"
+        app:srcCompat="@drawable/home_title_blur" />
+
+    <ImageView
+        android:id="@+id/cover_cloud_upRight"
+        android:layout_width="164dp"
+        android:layout_height="136dp"
+        android:layout_marginStart="188dp"
+        android:layout_marginTop="140dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/home_cloud_3" />
+
+
+    <ImageView
+        android:id="@+id/cover_cloud_downRight"
+        android:layout_width="154dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="236dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/home_cloud_2" />
+
+    <ImageView
+        android:id="@+id/cover_cloud_upLeft"
+        android:layout_width="171dp"
+        android:layout_height="143dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="140dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/home_cloud_1" />
+
+    <ImageView
+        android:id="@+id/cover_cloud_downLeft"
+        android:layout_width="173dp"
+        android:layout_height="138dp"
+        android:layout_marginTop="236dp"
+        android:layout_marginEnd="236dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/home_cloud_4" />
+
+    <ImageView
+        android:id="@+id/cover_cloud_white"
+        android:layout_width="173dp"
+        android:layout_height="158dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="184dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cover_cloud_1" />
+
+    <ImageView
+        android:id="@+id/cover_cloud_watercolor"
+        android:layout_width="160dp"
+        android:layout_height="144dp"
+        android:layout_marginTop="232dp"
+        android:layout_marginEnd="76dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cover_cloud_2" />
+
+
+    <!--
+    <ImageView
         android:id="@+id/separate_cloud_1"
         android:layout_width="154dp"
         android:layout_height="137dp"
@@ -116,8 +123,8 @@
         android:id="@+id/separate_cloud_2"
         android:layout_width="171dp"
         android:layout_height="143dp"
-        android:layout_marginTop="108dp"
-        android:layout_marginEnd="176dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="48dp"
         app:layout_constraintEnd_toStartOf="@+id/separate_cloud_3"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/home_cloud_1" />
@@ -141,17 +148,7 @@
         app:layout_constraintEnd_toStartOf="@+id/separate_cloud_1"
         app:layout_constraintTop_toBottomOf="@+id/separate_cloud_2"
         app:srcCompat="@drawable/home_cloud_4" />
+    -->
 
-    <ImageView
-        android:id="@+id/title_blur"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/answer_view_background"
-        app:layout_constraintVertical_bias="0.251"
-        app:srcCompat="@drawable/home_title_blur" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,11 +34,14 @@
         android:id="@+id/result_txt_question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="50dp"
         android:fontFamily="@font/baloo"
         android:text="[question asked]"
         android:textColor="@color/white"
         android:textSize="24sp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
@@ -47,7 +50,7 @@
         android:id="@+id/imageView_cloud1"
         android:layout_width="149dp"
         android:layout_height="108dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="252dp"
         android:layout_marginEnd="164dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView_cloud2"
         app:layout_constraintTop_toTopOf="parent"
@@ -58,7 +61,7 @@
         android:layout_width="166dp"
         android:layout_height="152dp"
         android:layout_marginStart="280dp"
-        android:layout_marginTop="268dp"
+        android:layout_marginTop="236dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/cloud_back_2" />
@@ -67,10 +70,10 @@
         android:id="@+id/imageView_cloud3"
         android:layout_width="167dp"
         android:layout_height="109dp"
-        android:layout_marginTop="412dp"
         android:layout_marginEnd="188dp"
+        android:layout_marginBottom="252dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView_cloud4"
-        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/cloud_back_3" />
 
     <ImageView
@@ -78,25 +81,27 @@
         android:layout_width="142dp"
         android:layout_height="129dp"
         android:layout_marginStart="304dp"
-        android:layout_marginTop="412dp"
+        android:layout_marginBottom="240dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/cloud_back_4" />
 
     <TextView
         android:id="@+id/result_txt_outcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="130dp"
         android:fontFamily="@font/baloo"
         android:text="[outcome]"
         android:textColor="@color/p1_color"
         android:textSize="40sp"
         android:textStyle="bold"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/result_txt_question" />
+        app:layout_constraintTop_toTopOf="@+id/view_background"
+        app:layout_constraintVertical_bias="0.499" />
 
     <Button
         android:id="@+id/result_btn_home"
@@ -140,7 +145,9 @@
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="150dp"
+        android:layout_marginEnd="50dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -153,7 +160,8 @@
             android:fontFamily="@font/baloo"
             android:text="LeadName"
             android:textColor="@color/white"
-            android:textSize="28sp" />
+            android:textSize="28sp"
+            app:autoSizeTextType="uniform" />
 
         <TextView
             android:id="@+id/result_txt_chose"
