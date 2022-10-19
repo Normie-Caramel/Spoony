@@ -39,7 +39,7 @@ public class AudioService extends Service {
     }
 
     public void init() {
-        gameBGM = MediaPlayer.create(getApplicationContext(), R.raw.game_bgm);
+        gameBGM = MediaPlayer.create(getApplicationContext(), R.raw.home_bgm);
         homeBGM = MediaPlayer.create(getApplicationContext(), R.raw.home_bgm);
     }
 

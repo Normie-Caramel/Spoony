@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.util.Map;
 
@@ -17,9 +17,7 @@ public class FirebaseActivity extends AppCompatActivity {
 
     private Map<String, Object> qs;
 
-//    private Button dButton;
     private Button uButton;
-//    private TextView qTextView;
     private EditText qTextInput;
     private TextView outputTextView;
     private String questionJSON;
@@ -34,29 +32,9 @@ public class FirebaseActivity extends AppCompatActivity {
         setContentView(R.layout.lib);
 
         _layout = findViewById(R.id.firebaseLayout);
-//        dButton = findViewById(R.id.downloadButton);
         uButton = findViewById(R.id.uploadButton);
-//        qTextView = findViewById(R.id.questionTextView);
         qTextInput = findViewById(R.id.questionTextInput);
         outputTextView = findViewById(R.id.outputTextView);
-
-//        fb.updateQuestions(fb.loadQuestionFromJSONFile(this, fb.isFirstBoot()), success -> {
-//            qs = fb.getQuestions();
-//            qTextView.setText((CharSequence) String.valueOf(qs));
-//            Log.d("QFILEIN", String.valueOf(qs));
-//        });
-//
-//        dButton.setOnClickListener(view -> {
-//            fb.loadQuestionFromJSONFile(this, fb.isFirstBoot());
-//            fb.updateQuestions(questionJSON, success -> {
-//                if (success) {
-//                    qs = fb.getQuestions();
-//                    qTextView.setText((CharSequence) String.valueOf(qs));
-//                    Log.d("QOUT", String.valueOf(qs));
-//                    fb.saveQuestionToJSONFile(this, qs);
-//                }
-//            });
-//        });
 
         uButton.setOnClickListener(view -> {
             String input = qTextInput.getText().toString();
@@ -66,16 +44,16 @@ public class FirebaseActivity extends AppCompatActivity {
             outputTextView.setTextColor(Color.GREEN);
 
             // disabled for now to prevent accidentally adding stuff to firestore
-//            fb.addNewQuestion(input, success -> {
-//                if (success) {
-//                    outputTextView.setText("SUCCESS");
-//                    outputTextView.setBackgroundColor(Color.BLACK);
-//                } else {
-//                    outputTextView.setText("ERROR");
-//                    outputTextView.setTextColor(Color.RED);
-//                    outputTextView.setBackgroundColor(Color.BLACK);
-//                }
-//            });
+            fb.addNewQuestion(input, success -> {
+                if (success) {
+                    outputTextView.setText("SUCCESS");
+                    outputTextView.setBackgroundColor(Color.BLACK);
+                } else {
+                    outputTextView.setText("ERROR");
+                    outputTextView.setTextColor(Color.RED);
+                    outputTextView.setBackgroundColor(Color.BLACK);
+                }
+            });
         });
     }
 }
