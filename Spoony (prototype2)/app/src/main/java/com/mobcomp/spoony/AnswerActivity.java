@@ -1,6 +1,7 @@
 package com.mobcomp.spoony;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -56,6 +57,8 @@ public class AnswerActivity extends SpoonyActivity {
             leadPercentText.setText(String.valueOf(leadPercent));
             followPercentText.setText(String.valueOf((100 - leadPercent)));
         }
+
+        gradient.setGradientCenter(0, leadPercent / 100f);
     }
 
     private void displaySpinnerScreen() {
@@ -77,6 +80,7 @@ public class AnswerActivity extends SpoonyActivity {
 
         leadPercentText = findViewById(R.id.answer_lead_pct);
         followPercentText = findViewById(R.id.answer_follow_pct);
+        gradient = (GradientDrawable) ResourcesCompat.getDrawable(getResources(), R.drawable.spinner_gradient, getTheme());
     }
 
     private void displayPutDownScreen() {

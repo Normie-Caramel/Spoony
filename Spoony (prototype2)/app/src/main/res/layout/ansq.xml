@@ -41,46 +41,32 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/home_icon" />
 
-    <ImageButton
-        android:id="@+id/lock_button"
+    <ImageView
+        android:id="@+id/ansq_arrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/answer_view_background"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        android:translationY="-40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/answer_spinner_layout"
-        app:layout_constraintVertical_bias="0.235"
-        app:srcCompat="@drawable/lock_rectangle_button" />
-
-    <TextView
-        android:id="@+id/txt_lock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/amiko_bold"
-        android:text="@string/lock_string"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/lock_button"
-        app:layout_constraintEnd_toEndOf="@+id/lock_button"
-        app:layout_constraintHorizontal_bias="0.371"
-        app:layout_constraintStart_toStartOf="@+id/lock_button"
-        app:layout_constraintTop_toTopOf="@+id/lock_button"
-        app:layout_constraintVertical_bias="0.438" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/arrow" />
 
     <ImageView
-        android:id="@+id/img_start"
+        android:id="@+id/ansq_spinner_background"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/lock_button"
-        app:layout_constraintEnd_toEndOf="@+id/lock_button"
-        app:layout_constraintHorizontal_bias="0.266"
-        app:layout_constraintStart_toEndOf="@+id/txt_lock"
-        app:layout_constraintTop_toTopOf="@+id/lock_button"
-        app:layout_constraintVertical_bias="0.410"
-        app:srcCompat="@drawable/lock_icon" />
-
+        android:translationY="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/spinner_background" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -135,6 +121,7 @@
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:translationY="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -152,6 +139,7 @@
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:translationY="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -160,9 +148,23 @@
             app:layout_constraintVertical_bias="0.93" />
 
         <ImageView
+            android:id="@+id/answer_spinner_rear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleX="0.75"
+            android:scaleY="0.75"
+            android:translationY="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/spinner_main_rear" />
+
+        <ImageView
             android:id="@+id/answer_spinner_gradient"
-            android:layout_width="225dp"
-            android:layout_height="225dp"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -171,20 +173,35 @@
             app:srcCompat="@drawable/spinner_gradient" />
 
 
-
         <ImageView
             android:id="@+id/answer_spinner_lower"
-            android:layout_width="187dp"
-            android:layout_height="187dp"
-            android:scaleX="1.1"
-            android:scaleY="1.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rotation="90"
+            android:scaleX="0.6"
+            android:scaleY="0.6"
+            android:translationX="-5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/compass_answer" />
+            app:srcCompat="@drawable/spinner_main_front" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageButton
+        android:id="@+id/lock_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/spinner_lock_button" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
