@@ -22,7 +22,7 @@ public class FirebaseActivity extends AppCompatActivity {
     private TextView outputTextView;
     private String questionJSON;
 
-    private CoordinatorLayout _layout;
+    private ConstraintLayout _layout;
 
     FirebaseHandler fb = new FirebaseHandler();
 
