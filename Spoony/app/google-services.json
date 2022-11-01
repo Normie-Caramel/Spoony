@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "852434792789",
+    "project_id": "comp90018-assignment-2",
+    "storage_bucket": "comp90018-assignment-2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852434792789:android:85da0033c85c6be3d67fdc",
+        "android_client_info": {
+          "package_name": "com.mobcomp.spoony"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "852434792789-4os8u3u2rnpvir2l1as03a5ucbghonuj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABnlDjCDIizJZQneTe9z76jiQUK6dJ624"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "852434792789-4os8u3u2rnpvir2l1as03a5ucbghonuj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

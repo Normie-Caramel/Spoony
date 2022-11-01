@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- view_name_entry_p2 from your XD file. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+	android:shape="rectangle" >
+	<solid android:color="@color/_state_screen_color" />
+	<!-- <gradient android:angle="270" android:type="linear" android:startColor="#ffffdfeb" android:endColor="#ffeccbfd" /> -->
+</shape>
+

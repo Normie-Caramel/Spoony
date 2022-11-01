@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Spoony</string>
+    <string name="action_settings">Settings</string>
+    <string name="next">NEXT</string>
+    <string name="previous">Previous</string>
+    <string name="insert_question">Insert question...</string>
+    <string name="upload">Upload</string>
+    <string name="question_list">Question List</string>
+    <string name="download">Download</string>
+    <string name="question_input">Question Input</string>
+    <string name="textview">TextView</string>
+    <string name="type_here">Enter question...</string>
+
+    <string name="ek_img_content">ExportKit Image</string>
+    <string name="name_string">Name</string>
+    <string name="home_string">Home</string>
+    <string name="_eg__anna_string">eg. Anna</string>
+    <string name="_eg__bill_string">eg. Bill</string>
+    <string name="setting_string">Settings</string>
+    <string name="start_string">Start</string>
+    <string name="library_string">Library</string>
+    <string name="instruction_string">Instructions</string>
+    <string name="next_string">NEXT</string>
+    <string name="got_it">GOT IT!</string>
+    <string name="lock_string">LOCK</string>
+    <string name="exit_string">EXIT</string>
+    <string name="play_again_string">Next Round</string>
+    <string name="question_string">Question</string>
+    <string name="place_flat_string">Put me down!</string>
+    <string name="pick_me_up_string">Pick me up!</string>
+    <string name="which_did_string">Which question did</string>
+    <string name="choose_string">choose?</string>
+    <string name="spooner_1_string">Spooner 1</string>
+    <string name="spooner_2_string">Spooner 2</string>
+    <string name="wrong_string">Nice try, but nope!</string>
+    <string name="correct_string">You got it!</string>
+    <string name="_eg__anna_underline"> <font color="#D5D2D2" size="25"> eg. <u>Anna</u> </font> </string>
+    <string name="_eg__bill_underline"> <font color="#D5D2D2" size="25"> eg. <u>Bill</u> </font> </string>
+    <string name="point_to_string">Point to</string>
+</resources>
