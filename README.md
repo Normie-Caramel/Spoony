@@ -27,6 +27,7 @@
    ```
 
 
-
+### Compile Spoony App
+1. Open ./Spoony folder in Android Studio and run / build the app.
 
 
